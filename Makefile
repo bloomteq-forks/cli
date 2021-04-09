@@ -40,7 +40,11 @@ vendor:
 cross: amd64 386 arm arm64 s390x ppc64le ## build cross platform binaries
 
 .PHONY: cross-mod
-cross-popular: amd64 arm arm64
+cross-popular: amd64-linux arm arm64
+
+.PHONY: amd64-linux
+amd64-linux:
+	GOOS=linux GOARCH=amd64 go build -mod=vendor $(LDFLAGS) -o bin/tkn-linux-amd64 ./cmd/tkn
 
 .PHONY: amd64
 amd64:
