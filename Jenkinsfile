@@ -19,6 +19,7 @@ pipeline {
         stage('Build Tekton CLI') {
           steps {
             script {
+              sh 'apk add --no-cache git make musl-dev'
               sh 'make cross-popular'
               sh 'ls -alh ./bin'
             }
