@@ -19,9 +19,8 @@ pipeline {
         stage('Build Tekton CLI') {
           steps {
             script {
-              echo 'TODO'
-              sh 'ls -alh'
-              sh 'export'
+              sh 'make cross-popular'
+              sh 'ls -alh ./bin'
             }
           }
         }
